@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Build a Rudimentary 3D Engine with SVG</title>
+	<link rel="stylesheet" href="normalize.css">
+	<link rel="stylesheet" href="font.css">
+	<link rel="stylesheet" href="slides.css">
+</head>
+
+<body>
+	<article>
+		<section>
+			<div class="content">
+				<div class="byline">
+					<div class="classy">This talk is called:</div>
+				</div>
+				<h1>Building a <strong>Rudimentary</strong> 3D Engine with SVG</h1>
+				<div class="byline">
+					<div class="classy">with this guy:</div>
+				</div>
+				<div class="me"></div>
+				<div class="byline"><a target="_blank" href="http://mkeas.org/">http://mkeas.org</a><a target="_blank" href="https://twitter.com/matthiasak">@matthiasak</a><a target="_blank" href="http://github.com/matthiasak">matthiasak</a>
+				</div>
+			</div>
+		</section>
+		<section>
+			<div class="content">
+				<div class="byline">
+					<div class="classy">I am an author:</div>
+				</div>
+				<h1>Wrinklefree <strong>jQuery and HTML5</strong></h1>
+				<div class="byline">
+					<div class="classy">and</div>
+				</div>
+				<h1>Wrinklefree <strong>JS for Hipsters</strong></h1>
+				<div class="byline"> on Leanpub (<a target="_blank" href="https://leanpub.com/u/matthiasak">https://leanpub.com/u/matthiasak</a>)</div>
+			</div>
+		</section>
+		<section>
+			<div class="content">
+				<div class="byline">
+					<div class="classy">Firstly:</div>
+				</div>
+				<h1>A confession</h1>
+				<div class="unbrokenline"></div>
+			</div>
+		</section>
+		<section>
+			<div class="content">
+				<div class="unbrokenline"></div>
+				<h1>I am not really a 3D / graphics developer</h1>
+				<div class="unbrokenline"></div>
+			</div>
+		</section>
+		<section>
+			<div class="content">
+				<div class="byline">
+					<div class="classy">When I built</div>
+				</div>
+				<h1>this
+					<strong>Rudimentary</strong> 3D Engine</h1>
+				<div class="byline">
+					<div class="classy">It took me</div>
+				</div>
+				<h1>
+					<strong>forever</strong>
+				</h1>
+				<div class="byline">
+					<div class="classy">to understand basic 3D engine principles.</div>
+				</div>
+			</div>
+		</section>
+		<section data-bespoke-state="programming" class="bespoke-slide "></section>
+		<section data-bespoke-state="rubiks" class="bespoke-slide "></section>
+		<section data-bespoke-state="code" class="bespoke-slide ">
+			<div class="content">
+				<h1>What's the story, anyway?</h1>
+<pre style="display: inline-block;">var testBuilding = {
+	width: 800
+	, length: 800
+	, rpa: 1
+	, rpc: 1
+	, swaEaveHeight: 240
+	, swcEaveHeight: 240
+};</pre>
+	<p><a target="_blank" href="https://plus.google.com/photos/108833958291936017093/albums/5919462191805551121?banner=pwa&authkey=CIOxloyR0__XNg">clicky.</a></p>
+			</div>
+		</section>
+		<section data-bespoke-state="" class="bespoke-slide ">
+			<div class="content">
+				<div class="byline"><span class="classy large">The problem</span></div>
+				<h1>How do I make it easier to order very detailed <strong>buildings</strong>
+				<div class="byline">with hundreds of engineering values</div>
+				<h1>without requiring software keyboard interaction on the <strong>iPad</strong>?</h1>
+			</div>
+		</section>
+		<section>
+			<div class="content">
+				<h2>
+					<a target="_blank" href="matthiasak.github.io/3D-svg-model-viewer">matthiasak.github.io/3D-svg-model-viewer</a>
+				</h2>
+			</div>
+		</section>
+		<section>
+			<div class="content">
+				<h2>This talk is now:</h2>
+				<div class="byline">
+					<div class="classy">Things</div>
+				</div>
+				<h2>Matt
+					<strong>didn't know</strong> about graphics programming</h2>
+				<div class="byline">
+					<div class="classy">that are</div>
+				</div>
+				<h2>
+					<strong>mildly interesting</strong>
+				</h2>
+				<div class="byline">
+					<div class="classy">and relate to</div>
+				</div>
+				<h2>
+					<strong>JavaScript and metal buildings</strong>
+				</h2>
+			</div>
+		</section>
+		<section>
+			<div class="content">
+				<div class="byline">
+					<div class="classy">Or,</div>
+				</div>
+				<h2>Nuances</h2>
+				<div class="byline">
+					<div class="classy">that</div>
+				</div>
+				<h2>
+					<strong>SVG fixes</strong>
+				</h2>
+				<div class="byline">
+					<div class="classy">that I</div>
+				</div>
+				<h2>didn't know existed</h2>
+				<div class="unbrokenline"></div>
+			</div>
+		</section>
+		<section data-bespoke-state="catsaber2" class="bespoke-slide ">
+			<div class="content">
+				<div class="unbrokenline"></div>
+				<h3>Thus,</h3>
+				<div class="unbrokenline"></div>
+				<h2>I began my <strong>training</strong>.</h2>
+				<div class="unbrokenline"></div>
+			</div>
+		</section>
+		<section data-bespoke-state="serious" class="bespoke-slide ">
+			<div class="content">
+				<div class="unbrokenline"></div>
+				<h2>
+					<strong>Serious time</strong>
+				</h2>
+				<div class="unbrokenline"></div>
+			</div>
+		</section>
+		<section>
+			<div class="content">
+				<div class="byline">
+					<div class="classy large">Why SVG?</div>
+				</div>
+				<ul>
+					<li>Widely supported and very portable</li>
+					<li>Kept me close to the math (and not too much else)</li>
+					<li>SVG makes DOM elements</li>
+					<li>I just finished working with Raphael.js</li>
+				</ul>
+				<div class="unbrokenline"></div>
+			</div>
+		</section>
+
+		<section>
+			<div class="content">
+				<div class="byline">
+					<div class="classy large">Raphael.js</div>
+				</div>
+				<ul>
+					<li>Lets you work with IE8 (VML)</li>
+					<li>Pretty quick to get up and running</li>
+				</ul>
+				<div class="unbrokenline"></div>
+			</div>
+		</section>
+
+		<section data-bespoke-state="code" class="bespoke-slide">
+			<div class="content">
+				<h1>Raphael seems simple at first</h1>
+<pre style="display: inline-block;">// Creates canvas 320 x 200 at 10, 50
+var paper = Raphael(10, 50, 320, 200);
+
+// Creates circle at x = 50, y = 40, with radius 10
+var circle = paper.circle(50, 40, 10);
+
+// Sets the fill attribute of the circle to red (#f00)
+circle.attr("fill", "#f00");
+
+// Sets the stroke attribute of the circle to white
+circle.attr("stroke", "#fff");</pre>
+			</div>
+		</section>
+
+		<section data-bespoke-state="" class="bespoke-slide">
+			<div class="content">
+				<h4><a href="http://jsperf.com/paper-vs-processing-vs-raphael/12" target="_blank">I discovered it was slow.</a></h4>
+			</div>
+		</section>
+
+		<section data-bespoke-state="smells" class="bespoke-slide"></section>
+
+		<section>
+			<div class="content">
+				<div class="byline">
+					<div class="classy large">So I went native!</div>
+				</div>
+				<ul>
+					<li>IE9+</li>
+					<li>Just a bunch of paths</li>
+					<li>Can modify/persist/mess with the &lt;polygon&gt; elements</li>
+				</ul>
+				<div class="unbrokenline"></div>
+			</div>
+		</section>
+
+		<section data-bespoke-state="code" class="bespoke-slide">
+			<div class="content">
+				<h2>Es-Vee-Geeeee</h2>
+<pre style="display: inline-block;">
+	&lt;div id="svg-div"&gt;
+		&lt;svg version="1.1"&gt;
+			&lt;polygon
+				style="fill:rgb(43,244,113);fill-opacity:1"
+				points="241.76134566328196,367 241.76134566328196,551.6185119801582 84.47296084318484,459.4990933923533 84.47296084318484,367 136.974255293421,243.752363252747 241.76134566328196,367"&gt;&lt;/polygon&gt;
+		&lt;/svg&gt;
+	&lt;/div&gt;</pre>
+			</div>
+		</section>
+
+		<section data-bespoke-state="" class="bespoke-slide">
+			<div class="content">
+				<div class="byline">
+					<div class="classy large">These points are the path in the 2D space</div>
+				</div>
+				<ul>
+					<li>(241.76134566328196,367)</li>
+					<li>(241.76134566328196,551.6185119801582)</li>
+					<li>(84.47296084318484,459.4990933923533)</li>
+					<li>(84.47296084318484,367)</li>
+					<li>(136.974255293421,243.752363252747)</li>
+					<li>(241.76134566328196,367) - close the &lt;polygon&gt;</li>
+				</ul>
+				<div class="unbrokenline"></div>
+			</div>
+		</section>
+
+		<section data-bespoke-state="" class="bespoke-slide">
+			<div class="content">
+				<div class="byline">
+					<div class="classy large">These points are calculated by the engine from these 3d points</div>
+				</div>
+				<pre style="display:inline-block;">
+var ewb = [
+	[0,0,0],
+	[0,0,swcZ],
+	[0,swcEaveY, swcZ],
+	[0, ridgeHeight, swcZ/2],
+	[0,swaEaveY,0]
+];
+				</pre>
+				<div class="unbrokenline"></div>
+			</div>
+		</section>
+
+		<section data-bespoke-state="" class="bespoke-slide">
+			<div class="content">
+				<div class="byline">
+					<div class="classy large">Which I got from</div>
+				</div>
+				<pre style="display:inline-block;">
+var testBuilding = {
+	width: 800,
+	length: 800,
+	rpa: 1,
+	rpc: 1,
+	swaEaveHeight: 240,
+	swcEaveHeight: 240
+};
+				</pre>
+				<div class="unbrokenline"></div>
+			</div>
+		</section>
+
+		<section data-bespoke-state="code" class="bespoke-slide">
+			<div class="content">
+				<h2>Make me some polygons</h2>
+<pre style="display: inline-block;">
+var shapes = createPolygonsFromBuilding(testBuilding);
+var svgShapes = {};
+</pre>
+			</div>
+		</section>
+
+		<section data-bespoke-state="code" class="bespoke-slide">
+			<div class="content">
+				<h2>Make me some polygons</h2>
+<pre style="display: inline-block;">
+function createPolygonsFromBuilding(building) {
+	...
+	var ridgeHeight = building.swaEaveHeight+building.swcEaveHeight;
+	var maxDimension = building.width > building.length ? building.width : building.width;
+	...
+
+	var opacity = 1;
+	return [
+		new Polygon('swa', swa, randomColor(), opacity, 0),
+		new Polygon('ewb', ewb, randomColor(), opacity, 0),
+		new Polygon('swc', swc, randomColor(), opacity, 0),
+		new Polygon('ewd', ewd, randomColor(), opacity, 0),
+		new Polygon('rpa', rpa, randomColor(), opacity, 0),
+		new Polygon('rpc', rpc, randomColor(), opacity, 0),
+		createGround(-.5*building.length, 1.5*building.length, -1.5*building.width, .5*building.width)
+	]
+}
+</pre>
+			</div>
+		</section>
+
+		<section data-bespoke-state="code" class="bespoke-slide">
+			<div class="content">
+				<h2>Erm.. Polygon?</h2>
+<pre style="display: inline-block;">
+function Polygon(id, coordinates, color, opacity, stroke, forceToBackground){
+	this.id = id;
+	this.coordinates = coordinates;
+	this.color = color;
+	this.opacity = opacity;
+	this.stroke = stroke;
+	this.forceToBackground = forceToBackground || false;
+}
+</pre>
+			</div>
+		</section>
+
+		<section data-bespoke-state="code" class="bespoke-slide">
+			<div class="content">
+				<h2>Color!!!</h2>
+<pre style="display: inline-block;">
+/**
+ * Return a random RGB color
+ * @return {[Number]} an RGB array e.g. [200, 30, 47] => [R, G, B]
+ */
+function randomColor() {
+	var color = [];
+	for (var j = 0; j < 3; j++) {
+		color[j] = Math.floor(Math.random() * 255);
+	}
+	return color;
+}
+</pre>
+			</div>
+		</section>
+
+		<section data-bespoke-state="code" class="bespoke-slide">
+			<div class="content">
+				<h2>I have a camera</h2>
+<pre style="display: inline-block;">
+/**
+ * Updates the camera's location
+ */
+function setCameraPosition(x, y, z) {
+	camera = [x, y, z];
+}
+</pre>
+			</div>
+		</section>
+
+		<section data-bespoke-state="luke-gangnam" class="bespoke-slide">
+			<div class="content">
+				<div class="byline">
+					<div class="classy large">Let's talk about</div>
+				</div>
+				<h2>
+					<strong>sets() baby!</strong>
+				</h2>
+				<div class="unbrokenline"></div>
+			</div>
+		</section>
+
+		<section data-bespoke-state="code" class="bespoke-slide">
+			<div class="content">
+				<h2>sets() all over!</h2>
+				<pre style="display:inline-block;">
+window.addEventListener("load", function() {
+	...
+	addSVGsFromShapes(shapes, svgShapes, svg); // populate the &lt;svg&gt; with &lt;polygon&gt;s
+	...
+}, false);
+				</pre>
+			</div>
+		</section>
+
+		<section data-bespoke-state="" class="bespoke-slide">
+			<div class="content">
+				<pre style="display:inline-block;">
+function addSVGsFromShapes(shapes, svgShapes, svg) {
+	for (var i = 0; i < shapes.length; i++) {
+		var shape = shapes[i];
+		var poly = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
+		var rgb = "rgb(" + shape.color[0] + "," + shape.color[1] + "," + shape.color[2] + ")";
+		poly.setAttribute("style", "fill:" + rgb + ";fill-opacity:" + shape.opacity);
+		svgShapes[shape.id] = poly;
+		svg.appendChild(poly);
+	}
+}
+				</pre>
+			</div>
+		</section>
+
+		<section data-bespoke-state="code" class="bespoke-slide">
+			<div class="content">
+				<pre style="display:inline-block;">
+window.addEventListener("load", function() {
+	...
+	rearrangePolygonsByCameraDistances(shapes, svgShapes, camera, svg);
+	...
+}, false);
+				</pre>
+			</div>
+		</section>
+
+		<section data-bespoke-state="" class="bespoke-slide">
+			<div class="content">
+				<pre style="display:inline-block;">
+function rearrangePolygonsByCameraDistances(shapes, svgShapes, camera, svg){
+	var cameraDistances = {};
+	for (var i = 0; i < shapes.length; i++) {
+		cameraDistances[shapes[i].id] = distance(average(shapes[i].coordinates), camera);
+	}
+
+	shapes.sort(byCameraDistance);
+
+	var length = shapes.length;
+	for(var i = 0; i < length; i++){
+		svg.appendChild(svgShapes[shapes[i].id]);
+	}
+}
+				</pre>
+			</div>
+		</section>
+
+		<section data-bespoke-state="code" class="bespoke-slide">
+			<div class="content">
+				<pre style="display:inline-block;">
+window.addEventListener("load", function() {
+	...
+	requestAnimationFrame(function(){ paint(shapes, svgShapes, camera, width, height, fov); });
+}, false);</pre>
+			</div>
+		</section>
+
+		<section data-bespoke-state="" class="bespoke-slide">
+			<div class="content">
+				<pre style="display:inline-block;">
+function paint(shapes, svgShapes, camera, width, height, fov) {
+	var len = shapes.length;
+
+	for (var i = 0; i < len; i++) {
+		var shape = shapes[i]
+			, coords = shape.coordinates
+			, num_coords = coords.length
+
+			// Start at the end to close the polygon
+			, point = project(coords[coords.length - 1], camera, width, height, fov)
+			, svgPoints = point[0] + "," + point[1];
+
+		for (var j = 0; j < num_coords; j++) {
+			point = project(coords[j], camera, width, height, fov); // The magic!
+			svgPoints += " " + point[0] + "," + point[1];
+		}
+
+		svgShapes[shape.id].setAttribute("points", svgPoints); // set the points on
+	}
+}
+				</pre>
+			</div>
+		</section>
+
+		<section data-bespoke-state="code" class="bespoke-slide">
+			<div class="content">
+				<h2>Projections (3D space onto the 2D screen)</h2>
+				<pre style="display:inline-block;">
+function project(point, camera, width, height, fov) {
+	// what's greater, the screen width or height?
+	var minDimension = width - height < 0 ? width : height;
+
+	/*
+		xfov = 70;
+		fov = xfov*0.0174532925; // 1 degree = 0.0174532925 radians;
+	*/
+
+	var scale = minDimension / fov
+		, z_weighting = point[2] + camera[2]
+		, x = (width/2 + scale * (point[0] + camera[0]) / z_weighting)
+		, y = (height/2 + scale * (point[1] + camera[1]) / z_weighting);
+	return [x,y];
+}
+				</pre>
+			</div>
+		</section>
+
+		<section data-bespoke-state="programming" class="bespoke-slide "></section>
+		<section data-bespoke-state="catsaber" class="bespoke-slide ">
+			<div class="content">
+				<h1><strong>Feeling powerful</strong></h1>
+			</div>
+		</section>
+
+		<section>
+			<div class="content">
+				<div class="byline">
+					<div class="classy">So what about</div>
+				</div>
+				<h1><strong>mouse</strong> and <strong>touch events</strong></h1>
+				<div class="byline">
+					<div class="classy">???</div>
+				</div>
+			</div>
+		</section>
+
+		<section data-bespoke-state="code" class="bespoke-slide">
+			<div class="content">
+				<h2>Mousedown / touchstart</h2>
+				<pre style="display:inline-block;">
+window.addEventListener("mousedown", inputStart);
+window.addEventListener("touchstart", inputStart);
+function inputStart(e){
+	mousedown = 1;
+	mouseDownX = e.pageX;
+	mouseDownY = e.pageY;
+}
+				</pre>
+			</div>
+		</section>
+
+		<section data-bespoke-state="code" class="bespoke-slide">
+			<div class="content">
+				<h2>Mouseup / touchend</h2>
+				<pre style="display:inline-block;">
+window.addEventListener("mouseup", inputEnd);
+window.addEventListener("touchend", inputEnd);
+function inputEnd(e){
+	mousedown = 0;
+	mouseMoveX = 0;
+}
+				</pre>
+			</div>
+		</section>
+
+		<section data-bespoke-state="" class="bespoke-slide">
+			<div class="content">
+				<h2>Mousemove / touchmove</h2>
+				<pre style="display:inline-block;">
+window.addEventListener("mousemove", inputMove);
+window.addEventListener("touchmove", inputMove);
+function inputMove(e){
+	e.preventDefault();
+	if(!mousedown) return;
+
+	var _dX = e.pageX - (mouseMoveX || mouseDownX);
+	mouseMoveX = e.pageX;
+	if((dX > 0 && _dX < 0) || (dX < 0 && _dX > 0)){
+		mouseDownX = mouseMoveX;
+	}
+	dX = _dX;
+
+	rotateAllSurfaces("y", (Math.PI * dX * 2 / window_width), shapes, camera);
+	rearrangePolygonsByCameraDistances(shapes, svgShapes, camera, svg);
+	requestAnimationFrame(function(){ paint(shapes, svgShapes, camera, width, height, fov) });
+}
+				</pre>
+			</div>
+		</section>
+
+		<section data-bespoke-state="serious" class="bespoke-slide">
+			<div class="content">
+				<div class="unbrokenline"></div>
+				<h2>Rotating.</h2>
+				<div class="unbrokenline"></div>
+			</div>
+		</section>
+
+		<section data-bespoke-state="dragdrop" class="bespoke-slide"></section>
+
+		<section data-bespoke-state="" class="bespoke-slide">
+			<div class="content">
+				<h2>rotate ALL TEH THINGS</h2>
+				<pre style="display:inline-block;">
+function rotateAllSurfaces(dimension, degree, shapes, camera){
+	for (var i = 0; i < shapes.length; i++) {
+		rotate(degree, dimension, shapes[i].coordinates, camera[2]);
+	}
+}
+				</pre>
+			</div>
+		</section>
+
+		<section data-bespoke-state="code" class="bespoke-slide">
+			<div class="content">
+				<pre style="display:inline-block;">
+function rotate(angle, axis, points) {
+	if (angle == 0) return;
+	var d1, d2;
+	switch (axis) {
+		case "x":
+			d1 = 1;
+			d2 = 2;
+			break;
+		...
+	}
+	var sin = Math.sin(angle),
+		cos = Math.cos(angle);
+	for (var i = 0; i < points.length; i++) {
+		var c1 = points[i][d1],
+			c2 = points[i][d2];
+
+		// edit in-memory
+		points[i][d1] = c1 * cos - c2 * sin; // new y = y*Math.cos(angle) - z*Math.sin(angle)
+		points[i][d2] = c1 * sin + c2 * cos; // new z = y*Math.sin(angle) + z*Math.cos(angle)
+	}
+}
+				</pre>
+			</div>
+		</section>
+
+		<section>
+			<div class="content">
+				<div class="byline">
+					<div class="classy">So what about</div>
+				</div>
+				<h1><strong>Mouse</strong> scrolling</h1>
+				<div class="byline">
+					<div class="classy">???</div>
+				</div>
+			</div>
+		</section>
+
+		<section data-bespoke-state="code" class="bespoke-slide">
+			<div class="content">
+				<pre style="display:inline-block;">
+//FF doesn't recognize mousewheel as of FF3.x
+var mousewheelevt=(/Firefox/i.test(navigator.userAgent))? "DOMMouseScroll" : "mousewheel";
+
+document.addEventListener(mousewheelevt, function(e){
+	zoom += e.wheelDeltaY;
+	setCameraPosition(0, testBuilding.swaEaveHeight * -1, zoom);
+	requestAnimationFrame(function(){ paint(shapes, svgShapes, camera, width, height, fov) });
+}, false);
+				</pre>
+			</div>
+		</section>
+
+		<section class="bespoke-slide ">
+			<div class="content">
+				<div class="byline">
+					<div class="classy">What about</div>
+				</div>
+				<h2>
+					<strong>Performance?</strong>
+				</h2>
+				<div class="unbrokenline"></div>
+			</div>
+		</section>
+
+		<section data-bespoke-state="code" class="bespoke-slide">
+			<div class="content">
+				<h2>requestAnimationFrame()</h2>
+				<pre style="display:inline-block;">
+(function() {
+	var lastTime = 0, vendors = ['webkit', 'moz'];
+	for (var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+		window.requestAnimationFrame = window[vendors[x] + 'RequestAnimationFrame'];
+		window.cancelAnimationFrame = window[vendors[x] + 'CancelAnimationFrame'] || window[vendors[x] + 'CancelRequestAnimationFrame'];
+	}
+
+	if (!window.requestAnimationFrame)
+		window.requestAnimationFrame = function(callback, element) {
+			... You must be using IE
+		};
+
+	if (!window.cancelAnimationFrame) window.cancelAnimationFrame = function(id) { clearTimeout(id); };
+}());
+				</pre>
+			</div>
+		</section>
+
+		<section data-bespoke-state="" class="bespoke-slide">
+			<div class="content">
+				<h4><a href="http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/" target="_blank">http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/</a></h4>
+			</div>
+		</section>
+
+		<section data-bespoke-state="" class="bespoke-slide">
+			<div class="content">
+				<div class="byline">
+					<div class="classy large">Why should I use it?</div>
+				</div>
+				<ul>
+					<li>Single reflow and repaint cycle</li>
+					<li>Background tabs don't run, which means less CPU, GPU, and memory usage and longer battery life.</li>
+				</ul>
+			</div>
+		</section>
+
+		<section data-bespoke-state="" class="bespoke-slide">
+			<div class="content">
+				<div class="byline">
+					<div class="classy">OMG I can brag about having a site with battery-friendly animations?</div>
+				</div>
+				<h3>Yeah, bro. Totes McGoats.</h3>
+			</div>
+		</section>
+
+		<section data-bespoke-state="" class="bespoke-slide ">
+			<div class="content">
+				<div class="byline">
+					<div class="classy large">Arrays versus Object literals:</div>
+				</div>
+				<h2>removes some
+					<strong>lols</strong>
+				</h2>
+				<div class="byline">
+					<div class="classy">&amp;</div>
+				</div>
+				<h2>makes code
+					<strong>faster</strong>
+				</h2>
+				<div class="byline">
+					<div class="classy">&amp;</div>
+				</div>
+				<h2>
+					<strong>changes</strong> important stuff</h2>
+				<div class="unbrokenline"></div>
+			</div>
+		</section>
+
+		<section data-bespoke-state="" class="bespoke-slide">
+			<div class="content">
+				<p><a target="_blank" href="https://www.scirra.com/blog/76/how-to-write-low-garbage-real-time-javascript">https://www.scirra.com/blog/76/how-to-write-low-garbage-real-time-javascript</a></p>
+				<p><a target="_blank" href="http://coding.smashingmagazine.com/2012/11/05/writing-fast-memory-efficient-javascript/">http://coding.smashingmagazine.com/2012/11/05/writing-fast-memory-efficient-javascript/</a></p>
+			</div>
+		</section>
+
+		<section data-bespoke-state="no" class="bespoke-slide ">
+			<div class="content">
+				<div class="unbrokenline"></div>
+				<h1>Stop the lols!</h1>
+				<div class="unbrokenline"></div>
+			</div>
+		</section>
+
+		<section data-bespoke-state="coffee" class="bespoke-slide ">
+			<div class="content">
+				<h2><a target="_blank" href="http://www.youtube.com/watch?v=P6UKhR0T6cs">John Carmack on the Physics of Light and Rendering</a></h2>
+			</div>
+		</section>
+
+		<section data-bespoke-state="" class="bespoke-slide">
+			<div class="content">
+				<div class="byline">
+					<div class="classy large">Currently cannot</div>
+				</div>
+				<ul>
+					<li>Use the GPU</li>
+					<li>Add textures (some browsers may support this)</li>
+				</ul>
+			</div>
+		</section>
+
+		<section data-bespoke-state="" class="bespoke-slide">
+			<div class="content">
+				<div class="byline">
+					<div class="classy large">Areas for improvement</div>
+				</div>
+				<ul>
+					<li>Caching / currying</li>
+					<li>Use HTML5 Web Workers to calculate the projections</li>
+					<li>Get contributors</li>
+					<li>Modularize the API</li>
+					<li>Maybe utilize CSS3D transforms for rotations? (support probably limited)</li>
+				</ul>
+			</div>
+		</section>
+
+		<section data-bespoke-state="cool" class="bespoke-slide"></section>
+
+		<section data-bespoke-state="fun" class="bespoke-slide">
+			<div class="content">
+				<div class="byline">
+					<div class="classy large">Learn to</div>
+				</div>
+				<h1>have some <strong>fun</strong> with it.</h1>
+				<div class="unbrokenline"></div>
+			</div>
+		</section>
+
+		<section data-bespoke-state="fun" class="bespoke-slide">
+			<div class="content">
+				<div class="byline">
+					<div class="classy large">These slides</div>
+				</div>
+				<h1><strong>built</strong> with</h1>
+				<p>
+					<a href="http://markdalgleish.com/projects/bespoke.js/" target="_blank">BespokeJS (http://markdalgleish.com/projects/bespoke.js/)</a>.
+				</p>
+				<div class="unbrokenline"></div>
+			</div>
+		</section>
+
+		<section data-bespoke-state="success" class="bespoke-slide ">
+			<div class="content">
+				<div class="unbrokenline"></div>
+				<h1>
+					<strong>Thank You!</strong>
+				</h1>
+				<div class="unbrokenline"></div>
+				<h2>Questions?</h2>
+				<div class="unbrokenline"></div>
+			</div>
+		</section>
+
+		<section data-bespoke-state="waves" class="bespoke-slide ">
+			<div class="content">
+				<div class="byline">
+					<div class="classy">For more information:</div>
+				</div>
+				<h3>https://github.com/matthiasak/3D-svg-model-viewer</h3>
+				<div class="byline">
+					<div class="classy">or hit me up on Twitter</div>
+				</div>
+				<div class="me"></div>
+				<h3><a target="_blank" href="https://twitter.com/matthiasak">@matthiasak</a>
+				</h3>
+			</div>
+		</section>
+	</article>
+
+	<script src="bespoke.js"></script>
+	<script>
+	bespoke.plugins.state = function(deck) {
+		deck.on('activate', function(e) {
+			var state = e.slide.getAttribute('data-bespoke-state');
+			if (state !== undefined) {
+				deck.parent.className = state;
+			}
+		});
+	};
+
+(function(bespoke) {
+
+  bespoke.plugins.hash = function(deck) {
+	var activeIndex,
+
+	  parseHash = function() {
+		var hash = window.location.hash.slice(1),
+		  slideNumberOrName = parseInt(hash, 10);
+
+		if (hash) {
+		  if (slideNumberOrName) {
+			activateSlide(slideNumberOrName - 1);
+		  } else {
+			deck.slides.forEach(function(slide, i) {
+			  slide.getAttribute('data-bespoke-hash') === hash && activateSlide(i);
+			});
+		  }
+		}
+	  },
+
+	  activateSlide = function(index) {
+		if (index !== activeIndex) {
+		  deck.slide(index);
+		}
+	  };
+
+	setTimeout(function() {
+	  parseHash();
+
+	  deck.on('activate', function(e) {
+		var slideName = e.slide.getAttribute('data-bespoke-hash');
+		window.location.hash = slideName || e.index + 1;
+		activeIndex = e.index;
+	  });
+
+	  window.addEventListener('hashchange', parseHash);
+	}, 0);
+  };
+
+}(bespoke));
+
+	(function() {
+		'use strict';
+
+		bespoke.horizontal.from('article', {
+			state: true
+			, hash: true
+		});
+
+		var i, image, j, matches, rules, sheet;
+
+		if (document.styleSheets) {
+			for (i = 0; i < document.styleSheets.length; ++i) {
+				sheet = document.styleSheets[i];
+				if (sheet.rules) {
+					for (j = 0; j < sheet.rules.length; ++j) {
+						rules = sheet.rules[j];
+						if (rules.style && rules.style.backgroundImage) {
+							matches = rules.style.backgroundImage.match(/url\((.*)\)/);
+							if (matches) {
+								image = new Image();
+								image.src = matches[1];
+							}
+						}
+					}
+				}
+			}
+		}
+
+	})();
+	</script>
+</body>
+
+</html>
