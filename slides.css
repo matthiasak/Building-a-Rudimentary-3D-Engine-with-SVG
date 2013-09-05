@@ -1,0 +1,456 @@
+article {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+article::before, article::after {
+  display: block;
+  position: absolute;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  content: "";
+  -webkit-filter: grayscale(0.3) brightness(0.3);
+  -moz-filter: grayscale(0.3) brightness(0.3);
+  filter: grayscale(0.3) brightness(0.3);
+}
+article::before {
+  z-index: 1;
+  width: 20%;
+  height: 20%;
+  top: 50%;
+  left: 50%;
+  margin-top: -5%;
+  margin-left: -10%;
+  -webkit-transform: scale(5.5);
+  -moz-transform: scale(5.5);
+  -ms-transform: scale(5.5);
+  -o-transform: scale(5.5);
+  transform: scale(5.5);
+}
+article::after {
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+article.waves::before {
+  -webkit-transform: scale(6.5);
+  -moz-transform: scale(6.5);
+  -ms-transform: scale(6.5);
+  -o-transform: scale(6.5);
+  transform: scale(6.5);
+  -webkit-filter: blur(1px) grayscale(0.3) brightness(0.4);
+  -moz-filter: blur(1px) grayscale(0.3) brightness(0.4);
+  filter: blur(1px) grayscale(0.3) brightness(0.4);
+  background-image: url("http://stream1.gifsoup.com/view/609536/beach-waves-o.gif");
+}
+article.coffee::before {
+  -webkit-filter: grayscale(0.3) brightness(0.4);
+  -moz-filter: grayscale(0.3) brightness(0.4);
+  filter: grayscale(0.3) brightness(0.4);
+  background-image: url("./coffee.gif");
+}
+article.success::before {
+  -webkit-filter: grayscale(0.5) brightness(0.4);
+  -moz-filter: grayscale(0.5) brightness(0.4);
+  filter: grayscale(0.5) brightness(0.4);
+  background-image: url("./rocky.gif");
+}
+article.no::before {
+  background-image: url("./carrell.gif");
+}
+article.serious::before {
+  -webkit-filter: grayscale(0.5) brightness(0.4);
+  -moz-filter: grayscale(0.5) brightness(0.4);
+  filter: grayscale(0.5) brightness(0.4);
+  background-image: url("./serious.gif");
+}
+article.programming::after {
+  -webkit-filter: none;
+  -moz-filter: none;
+  filter: none;
+  background-size: contain;
+  background-image: url("http://imgon.net/di-JMPP.gif");
+}
+article.rubiks::after {
+  -webkit-filter: none;
+  -moz-filter: none;
+  filter: none;
+  background-size: contain;
+  background-image: url("./rubiks.jpg");
+}
+article.catsaber::after {
+  -webkit-filter: none;
+  -moz-filter: none;
+  filter: none;
+  background-size: contain;
+  background-image: url("./catsaber.gif");
+}
+article.smells::after {
+  -webkit-filter: none;
+  -moz-filter: none;
+  filter: none;
+  background-size: contain;
+  background-image: url("./code-smells.jpg");
+}
+article.luke-gangnam::after {
+  -webkit-filter: none;
+  -moz-filter: none;
+  filter: none;
+  background-size: contain;
+  background-image: url("./luke-gangnam.gif");
+}
+article.dragdrop::after {
+  -webkit-filter: none;
+  -moz-filter: none;
+  filter: none;
+  background-size: contain;
+  background-image: url("./dragdrop.jpg");
+}
+article.cool::after {
+  -webkit-filter: none;
+  -moz-filter: none;
+  filter: none;
+  background-size: contain;
+  background-image: url("./cool.jpg");
+}
+article.fun::after {
+  /*-webkit-filter: none;
+  -moz-filter: none;
+  filter: none;*/
+  background-size: contain;
+  background-image: url("./fun.gif");
+}
+article.catsaber2::after {
+  -webkit-filter: none;
+  -moz-filter: none;
+  filter: none;
+  background-size: contain;
+  background-image: url("./catsaber2.gif");
+}
+article.code {
+  background-color: #fbeecb;
+}
+article.code section {
+  color: black;
+}
+article.programming {
+  background-color: white;
+  opacity: 0.95;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+html .content {
+  opacity: 1;
+  -webkit-transition: opacity 1s;
+  -moz-transition: opacity 1s;
+  -o-transition: opacity 1s;
+  transition: opacity 1s;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  opacity: 0.8;
+}
+
+a:hover {
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  opacity: 1;
+  border-bottom-color: inherit;
+}
+
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+
+body {
+  background: #111111;
+  font-family: source-sans-pro, sans-serif;
+  font-weight: 400;
+  color: white;
+  overflow: hidden;
+}
+
+.bespoke-slide {
+  z-index: 2;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-box-align: center;
+  box-align: center;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-box-pack: center;
+  box-pack: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.bespoke-inactive {
+  display: none;
+}
+
+.bespoke-after-1 {
+  z-index: -1;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: box;
+  opacity: 0;
+}
+
+.bespoke-after-1 .content > * {
+  opacity: 0;
+}
+
+.bespoke-after-1 .content.nofade > * {
+  opacity: 1;
+}
+
+.bespoke-active {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: box;
+  opacity: 1;
+}
+
+.bespoke-active .content > * {
+  opacity: 1;
+}
+
+.bespoke-active .content > *:nth-child(1) {
+  -webkit-transition: opacity 0.5s linear;
+  -webkit-transition-delay: 0s;
+  -moz-transition: opacity 0.5s linear 0s;
+  -o-transition: opacity 0.5s linear 0s;
+  transition: opacity 0.5s linear 0s;
+}
+
+.bespoke-active .content > *:nth-child(2) {
+  -webkit-transition: opacity 0.5s linear;
+  -webkit-transition-delay: 0.3s;
+  -moz-transition: opacity 0.5s linear 0.3s;
+  -o-transition: opacity 0.5s linear 0.3s;
+  transition: opacity 0.5s linear 0.3s;
+}
+
+.bespoke-active .content > *:nth-child(3) {
+  -webkit-transition: opacity 0.5s linear;
+  -webkit-transition-delay: 0.6s;
+  -moz-transition: opacity 0.5s linear 0.6s;
+  -o-transition: opacity 0.5s linear 0.6s;
+  transition: opacity 0.5s linear 0.6s;
+}
+
+.bespoke-active .content > *:nth-child(4) {
+  -webkit-transition: opacity 0.5s linear;
+  -webkit-transition-delay: 0.9s;
+  -moz-transition: opacity 0.5s linear 0.9s;
+  -o-transition: opacity 0.5s linear 0.9s;
+  transition: opacity 0.5s linear 0.9s;
+}
+
+.bespoke-active .content > *:nth-child(5) {
+  -webkit-transition: opacity 0.5s linear;
+  -webkit-transition-delay: 1.2s;
+  -moz-transition: opacity 0.5s linear 1.2s;
+  -o-transition: opacity 0.5s linear 1.2s;
+  transition: opacity 0.5s linear 1.2s;
+}
+
+.bespoke-active .content > *:nth-child(6) {
+  -webkit-transition: opacity 0.5s linear;
+  -webkit-transition-delay: 1.5s;
+  -moz-transition: opacity 0.5s linear 1.5s;
+  -o-transition: opacity 0.5s linear 1.5s;
+  transition: opacity 0.5s linear 1.5s;
+}
+
+.bespoke-active .content > *:nth-child(7) {
+  -webkit-transition: opacity 0.5s linear;
+  -webkit-transition-delay: 1.8s;
+  -moz-transition: opacity 0.5s linear 1.8s;
+  -o-transition: opacity 0.5s linear 1.8s;
+  transition: opacity 0.5s linear 1.8s;
+}
+
+.bespoke-active .content > *:nth-child(8) {
+  -webkit-transition: opacity 0.5s linear;
+  -webkit-transition-delay: 2.1s;
+  -moz-transition: opacity 0.5s linear 2.1s;
+  -o-transition: opacity 0.5s linear 2.1s;
+  transition: opacity 0.5s linear 2.1s;
+}
+
+.bespoke-active .content > *:nth-child(9) {
+  -webkit-transition: opacity 0.5s linear;
+  -webkit-transition-delay: 2.4s;
+  -moz-transition: opacity 0.5s linear 2.4s;
+  -o-transition: opacity 0.5s linear 2.4s;
+  transition: opacity 0.5s linear 2.4s;
+}
+
+.bespoke-active .content > *:nth-child(10) {
+  -webkit-transition: opacity 0.5s linear;
+  -webkit-transition-delay: 2.7s;
+  -moz-transition: opacity 0.5s linear 2.7s;
+  -o-transition: opacity 0.5s linear 2.7s;
+  transition: opacity 0.5s linear 2.7s;
+}
+
+section {
+  color: #f2f2f2;
+  text-align: center;
+}
+
+section .content {
+  padding: 1em;
+  word-break: break-word;
+}
+
+section h1 {
+  font-size: 3em;
+  font-weight: 300;
+  margin: 0;
+}
+
+section h2 {
+  font-size: 3em;
+  font-weight: 300;
+  margin: 0;
+}
+
+section h3 {
+  font-size: 2.5em;
+  font-weight: 400;
+  margin: 0;
+}
+
+section h4 {
+  margin: 0;
+  font-size: 1.5em;
+  font-weight: 400;
+}
+
+section .underline {
+  border-bottom: 0.1em solid white;
+}
+
+section .strikethrough {
+  text-decoration: line-through;
+  color: #999999;
+}
+
+section .byline, section .row {
+  margin: 20px 0;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: box;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-box-align: center;
+  box-align: center;
+}
+
+section .byline {
+  font-size: 1em;
+  color: #a6a6a6;
+}
+
+section .byline::before, section .byline::after {
+  content: "";
+  display: block;
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -ms-box-flex: 1;
+  box-flex: 1;
+  height: 0;
+  padding-top: 1px;
+  border-bottom: 1px dotted #595959;
+}
+
+section .byline > * {
+  margin-right: 20px;
+}
+
+section .byline > *:first-child {
+  margin-left: 20px;
+}
+
+section .unbrokenline {
+  border-bottom: 1px dotted #595959;
+  margin: 30px 0 30px;
+}
+
+section .classy {
+  font-size: 1.2em;
+  font-family: kepler-std, Georgia, serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+section .classy.large {
+  font-size: 2.5em;
+}
+
+section .me {
+  margin: 10px auto;
+  width: 120px;
+  height: 120px;
+  -webkit-border-radius: 120px;
+  -moz-border-radius: 120px;
+  -ms-border-radius: 120px;
+  -o-border-radius: 120px;
+  border-radius: 120px;
+  background-image: url("./matt.jpg");
+  background-size: 120px;
+  /*background-position: -20px -30px;*/
+}
+
+pre, code {
+  font-family: source-code-pro, "Monaco", courier, monospace;
+  font-size: 1.2em;
+  font-weight: 400;
+  text-align: left;
+}
+
+pre {
+  position: relative;
+  box-shadow: 0 0 1px 0 black, 0 0 0px 8px white, 0 0 0px 9px rgba(0, 0, 0, 0.1), 10px 10px 20px 3px rgba(0, 0, 0, 0.2), -10px 10px 20px 3px rgba(0, 0, 0, 0.2);
+  margin: 30px;
+  padding: 1em;
+}
+
+.bespoke-bullet {
+  display: none;
+}
+
+.bespoke-bullet.bespoke-bullet-last-active {
+  display: block;
+}
+
+section ul {
+  text-align: left;
+}
